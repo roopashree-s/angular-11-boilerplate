@@ -1,12 +1,11 @@
 import { Component, OnDestroy } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Subscription } from "rxjs/Subscription";
+import { Subscription } from "rxjs";
 
 import { LoginService } from "./login.service";
-import { ToastService, UserProfileService } from "../core";
+import { UserProfileService } from "../core";
 
 @Component({
-  moduleId: module.id,
   templateUrl: "./login.component.html",
   providers: [LoginService]
 })
@@ -17,7 +16,6 @@ export class LoginComponent implements OnDestroy {
     private loginService: LoginService,
     private route: ActivatedRoute,
     private router: Router,
-    private toastService: ToastService,
     private userProfileService: UserProfileService
   ) {}
 
@@ -28,10 +26,10 @@ export class LoginComponent implements OnDestroy {
   login() {
     this.loginSub = this.loginService
       .login()
-      .mergeMap(loginResult => this.route.queryParams)
-      .map(qp => qp["redirectTo"])
+      // .mergeMap(loginResult => this.route.queryParams)
+      // .map(qp => qp["redirectTo"])
       .subscribe(redirectTo => {
-        this.toastService.activate(`Successfully logged in`);
+        console.log(`Successfully logged in`);
         if (this.userProfileService.isLoggedIn) {
           let url = redirectTo ? [redirectTo] : ["/dashboard"];
           this.router.navigate(url);
@@ -41,7 +39,7 @@ export class LoginComponent implements OnDestroy {
 
   logout() {
     this.loginService.logout();
-    this.toastService.activate(`Successfully logged out`);
+    // console.log(`Successfully logged out`);
   }
 
   ngOnDestroy() {

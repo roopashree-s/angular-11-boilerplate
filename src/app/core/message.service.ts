@@ -1,6 +1,6 @@
 import { HttpBackend } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/http";
+import { HttpClient } from "@angular/common/http";
 import { Subject } from "rxjs";
 
 import { CONFIG } from "./config";

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Response } from "@angular/http";
-import { Observable } from "rxjs";
+import { HttpResponse } from "@angular/common/http";
+import { Observable, of } from "rxjs";
 
 @Injectable()
 export class ExceptionService {
@@ -9,14 +9,14 @@ export class ExceptionService {
   catchBadResponse: (errorResponse: any) => Observable<any> = (
     errorResponse: any
   ) => {
-    let res = <Response>errorResponse;
-    let err = res.json();
-    let emsg = err
-      ? err.error
-        ? err.error
-        : JSON.stringify(err)
-      : res.statusText || "unknown error";
-    console.log(`Error - Bad Response - ${emsg}`);
-    return Observable.of(false);
+    let res = <HttpResponse<any>>errorResponse;
+    let err = res || {};
+    // let emsg = err
+    //   ? err.error
+    //     ? err.error
+    //     : JSON.stringify(err)
+    //   : res.statusText || "unknown error";
+    console.log(`Error - Bad Response - `);
+    return of(false);
   };
 }

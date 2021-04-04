@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: "vehicles",
-    loadChildren: "app/vehicles/vehicles.module#VehiclesModule"
+    loadChildren: () => import('./vehicles/vehicles.module').then(m => m.VehiclesModule)
   },
   { path: "**", pathMatch: "full", component: PageNotFoundComponent }
 ];

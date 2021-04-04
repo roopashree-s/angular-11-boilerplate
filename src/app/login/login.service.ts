@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+import { of } from "rxjs";
 
 import { SpinnerService, UserProfileService } from "../../app/core";
 
@@ -11,10 +11,10 @@ export class LoginService {
   ) {}
 
   login() {
-    return Observable.of(true)
-      .do(_ => this.spinnerService.show())
-      .delay(1000)
-      .do(this.toggleLogState.bind(this));
+    return of(true)
+      // .do(_ => this.spinnerService.show())
+      // .delay(1000)
+      // .do(this.toggleLogState.bind(this));
     // .do((val: boolean) => {
     //   this.isLoggedIn = true;
     //   console.log(this.isLoggedIn);

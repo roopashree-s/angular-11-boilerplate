@@ -6,7 +6,6 @@ import { RouterModule } from "@angular/router";
 import { EntityService } from "./entity.service";
 import { ExceptionService } from "./exception.service";
 import { MessageService } from "./message.service";
-import { NavComponent } from "./nav/nav.component";
 
 import { throwIfAlreadyLoaded } from "./module-import-guard";
 import { SpinnerModule } from "./spinner/spinner.module";
@@ -21,7 +20,6 @@ import { SpinnerModule } from "./spinner/spinner.module";
     CommonModule,
     FormsModule,
     RouterModule,
-    ModalModule,
     SpinnerModule
   ],
   providers: [EntityService, ExceptionService, MessageService]
