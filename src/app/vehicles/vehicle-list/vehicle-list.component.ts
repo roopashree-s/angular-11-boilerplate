@@ -5,7 +5,7 @@ import { Vehicle } from "../shared/vehicle.model";
 import { VehicleService } from "../shared/vehicle.service";
 
 @Component({
-  selector: "story-vehicle-list",
+  selector: "app-vehicle-list",
   templateUrl: "./vehicle-list.component.html",
   styleUrls: ["./vehicle-list.component.css"]
 })
@@ -19,7 +19,7 @@ export class VehicleListComponent implements OnDestroy, OnInit {
     private vehicleService: VehicleService
   ) {}
 
-  filterChanged(searchText: string) {
+  filterChanged(searchText: any) {
     // this.filteredVehicles = this.filterService.filter(
     //   searchText,
     //   ["id", "name", "type"],

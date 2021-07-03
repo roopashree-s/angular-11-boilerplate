@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "story-404",
+  selector: "app-404",
   template: `
     <article class="template animated slideInRight">
       <h4>Inconceivable!</h4>

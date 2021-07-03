@@ -4,7 +4,7 @@ import { Subscription } from "rxjs";
 import { SpinnerState, SpinnerService } from "./spinner.service";
 
 @Component({
-  selector: "story-spinner",
+  selector: "app-spinner",
   templateUrl: "./spinner.component.html",
   styleUrls: ["./spinner.component.css"]
 })
